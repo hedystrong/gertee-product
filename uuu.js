@@ -53,11 +53,20 @@ function drawProductsHTML(param) {
         shineArr = [...allCategory]
     }
 
-    (param ? param.length == 0 ? [] : param : allProducts).map(({id, title, description}, index) =>{
-        row += `<div class = "card">
-        <a href="./index.html ? image= '${allProducts.images}' & 
-        title= '${allProducts.title}' ">${title}</a>
-        </div>`;
+    (param ? param.length == 0 ? [] : param : allProducts).map(({id, price, title, description,thumbnail}, index) =>{
+        row += `<div class="col-md-3"> 
+                    <div class="card">
+                        <div class="littleImg ratio ratio-16x9">
+                            <img src="${thumbnail}" class="card-img-top"  alt="...">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">${title}</h5>
+                            <p class="card-text">${price}$</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+                </div>`
+       
         
     })
     productElement.innerHTML = row;
