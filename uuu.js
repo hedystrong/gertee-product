@@ -4,6 +4,7 @@ let menu = document.getElementById("menu")
 let productElement = document.getElementById("products")
 let searchTxt = document.getElementById("searchTxt")
 let category = document.getElementById("category")
+let asideSort = document.getElementById("aside")
 function fillcategory() {
 let row = "";
     fetch ("https://dummyjson.com/products")
@@ -20,19 +21,21 @@ let row = "";
         console.log(allCategory);
 
         allCategory.map((categoryName) => {
-            row += `<li class = "nav-item">
+            row += `<div class = "nav-item">
                         <a class = "nav-link" href="a">${categoryName}</a>
-                        </li>`;
+                        </div>`;
                         
         })
 
         menu.innerHTML = row;
+        asideSort.innerHTML += row;
+
         drawProductsHTML();
         // console.log(row);
        
     })
     .catch((error) => console.log(error))
-
+    
        
 }
 
